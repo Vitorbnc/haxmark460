@@ -1,0 +1,56 @@
+Montagem:
+- Siga em linhas gerais o tutorial para a E260dn. Remova o fusor e instale o resistor no lugar do seu sensor de temperatura. Corte a parte debaixo da entrada 
+conforme o tutorial e ligue os sensores connforme as notas abaixo. Adicione o carrier e o segundo eixo conforme o tutorial e as imagens daqui.
+- As coisas que ele pede para remover ou relaocar no tutorial, como fonte, peças da parte inferior, etc, você pode manter todas.
+
+Sensores:
+São do tipo break-beam, têm 3 fios:
+-Preto: GND
+-Branco: Saída -> padrão 5V, acionado 0V (se ligado na placa da impressora)
+-Cor: 1.1V quando conectado, deve ser do fototransistor
+
+Alimentação:
+Retirar da porta paralela, de baixo pra cima (com a impressora na posição de operação), os dois primeiros contatos do conector: 5V,GND
+
+Escolha dos sensores:
+-O sensor reflexivo é mais prático, mas o que testei (TCRT5000) não se mostrou tão preciso para alinhar o texto impresso.
+-O sensor break-beam(BB) requer um furo na placa, mas foi bem preciso
+-Usei os dois, o BB vai para o MCU e o reflexivo serve para alinhamento manual na hora de inserir o carrier, acendendo um led quando uma marca com fita isolante é atingida
+
+Sensor utilizado como NPIS: 
+-Qualquer um dos sensores da impressora, acredito que utilizei o FUSER EXIT (descartando a parte com molas e cortando o plástico de suporte delas)
+-Posicionamento: cerca de 10.6 do diâmetro externo do eixo metálico padrão da impressora, o que puxa o papel.
+-Ângulo e altura: determinado colocando o carrier e marcando uma linha que segue sua trajetória 
+
+Controle do solenoide (MPF SOLENOID):
+-Ele possui 2 fios vermelhos, em ambos lê-se 24V quando ligados à placa. Corte 1 deles, queremos o lado que não tem 24V.
+-Mantendo o lado de 24V conectado na placa, o outro fio do solenoide deve ser conectado a um FET canal N com Source ligado ao GND. O Gate vai para o MCU.  
+
+Furo no carrier:
+-Centrado em cerca de 114.5mm da borda frontal (a primeira a entrar na impressora) e 4mm da lateral direita 
+Versão 1:
+-Furo com broca de 1.5mm
+-Veja a imagem se necessário
+Versão 2:
+-Um corte com disco de dremel na lateral. É mais feio mas apresentou maior repetibilidade no alinhamento (precisão segundo os metrólogos de plantão)
+-Para alinhar, você simplesmente alinha a borda do corte com a borda do sensor. Funciona que é uma beleza!
+
+Comentários do código:
+/*
+ * IMPORTANT: 
+ * Reflexive IR sensor is LOW when carrier is present
+ * Break-beam IR sensor is HIGH when carrier is present  
+ * You will need to negate all the sensor read logic when switching sensor type
+ * 
+ * Timings here will work for 1200dpi, the printer demo page is 300dpi by default, unless you've changed it before
+ * Even the slightiest change in print quality settings may change timings, and the printer will emit a PAPER JAM error
+ * 
+ * Printer sensors: They're mostly IR break-beam sensors with 3 wires:
+ * Black->GND
+ * White->sensor signal (go from 5V to 0V when connect to printer). It's an OPEN COLLECTOR output, so you will need a 10k pull-up to 5V if using just the sensor
+ * Colored->Tied to 5V trough 190R resistor, goes to IR led anode
+ * 
+ * Printer clutch: 2 wires(red and black)
+ * The black wire (from the board) goes from 24V to 0V when printer is pulling paper, this is also a collector output. 
+ * Use a diode for protection and a 5V pull-up, you may keep it connected to the printer
+ */

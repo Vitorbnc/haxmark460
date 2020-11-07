@@ -1,0 +1,74 @@
+### TODOS ALINHAMENTOS SÃO FEITOS PARA IMPRESSÃO DA DIREITA PARA ESQUERDA, JÁ QUE A CANTONEIRA LIMITANTE ESTÁ POSICIONADA À DIREITA NA IMPRESSORA
+
+# É bom (mas não é obrigatório) que a aresta direita da sua fenolite esteja reta
+# Ultimamente faço sempre os furos na placa primeiro (com a fresa cnc da ender 3) e depois imprimo o layout
+# Lembre de girar uma broca mais larga sobre cada furo após a furação para não deixar rebarbas que arranhem o cilindo da impressora
+# Se a bottom layer ficar torta na hora de imprimir você pode abrir o PDF com o Inkscape e girar ou mover um pouco a imagem, não precisa tirar a placa do carrier
+para alinhar.
+# Não estou imprimindo a soldermask. Simplesmente pego a placa após a corrosão e removo a tinta dos pads com um pequeno motor DC (esses de brinquedos), olhando o
+desenho pelo KiCad. As laterais da ponta do motor foram lixadas levemente para ficar mais áspero. Funciona muito bem. 
+
+## NO KICAD
+1.Use uma folha A4 em modo Retrato, e faça uma moldura retangular (em top e bottom) de 0.05mm com 4 vias de 0.7/0.4mm, uma em cada canto da sua placa.
+2.Alinhe o vértice superior direito sua placa com a marca interna da divisão 3-4 da régua da folha
+3.Mova sua placa exatamente (Ctrl+M) 15.75mm em Y (ou o valor sugerido na imagem de alinhamento que está nesta pasta)
+4.Gere o PDF da Top layer
+
+
+
+## PLACA FÍSICA
+1- Pegue a placa no tamanho desejado (não mais que 13cm de largura) e lixe bem com bombril toda a parte a ser impressa
+
+2-Pegue a chapa de alumínio com 3 cortes laterais e posicione a placa do seguinte modo:
+    -Lado direito alinhado com o fim das marcas da régua (à direita)
+    -Lado superior pode ou não ser alinhado com as marcas superiores da régua. 
+    -Tenha em mente que a impressão começa no meio da cruz do segundo risco da régua mais à direita ( 0.5 unidades da régua)
+
+3-Prenda a placa na chapa com duas tiras de fita de empacotamento (aquela marrom) nas partes superior e inferior da PCB
+4-Corte um pequeno pedaço de fita de cobre dupla face e conecte a PCB à chapa de alumínio
+5-Limpe toda a área a ser impressa com papel toalha embebido em acetona
+6-Coloque a chapa na impressora, inserindo até que o primeiro corte lateral coincida com o sensor break-beam, e só uma gotinha de alumínio fique visível, olhando por cima (inclinação da cabeça do observador semelhante à inclinação do sensor break-beam)
+
+
+## IMPRESSÃO
+
+1-Imprima o PDF gerado pelo Plotter do KiCad com o PPD fornecido Lexmark 460dn em qualidade 1200dpi, toner máximo e TAMANHO REAL.
+2-Reinsira o cabo USB caso ela "imprima em falso"
+3-Imprima 2 vezes a mesma imagem para reforçar a cobertura.
+Obs.:   Não está sendo necessário imprimir 2 vezes. Uma única já é suficiente, se a cobertura for boa.
+        Pequenos detalhes serão consertados pela acetona, e você pode usar a caneta também depois.
+
+
+## SECAGEM
+1.Para face simples:coloque a placa em uma caixa plástica com 3ml de acetona 60% por 25min. Deixe a placa sobre algum suporte (pedaço de metal, plástico, etc).
+2.Para dupla face: 15 min face 1 e 20 min face 2;
+
+
+
+## DUPLA FACE - KiCAD
+Método Novo:
+1-Vá em Visualizar->Inverter Visualização
+2-Faça o alinhamento novamente
+3-Vá em Visualizar->Inverter Visualização.
+4-Gere o PDF da bottom marcando a opção 'Plotar Espelhado'
+Método Antigo:
+1-Vá em editar, trocar camadas e troque tudo da Bottom para a Top
+2-Selecione tudo que era da bottom e com o botão direito dê Alternar (F)
+3-Mova exatamente a bottom layer -(Altura das tracks ou fills da layer bottom) unidades em Y para voltar tudo para o lugar
+4-Gere o PDF da bottom layer
+
+Obs.: Não salve isso, ou salve uma cópia, pois a bottom assim só é útil para impressão
+
+### DUPLA FACE - FÍSICA
+
+1-Fure em cada uma das marcas com broca e PCB 0.7 ou 0.8mm
+2-Lixe a área com bombril
+3-Alinhe o verso da PCB:
+    -Lado direito alinhado com o fim das marcas da régua (à direita)
+    -Furo superior direito coincidindo com a cruz da marca de 0.5 unidades da régua
+4-Prenda, coloque a tira de cobre e limpe com acetona
+
+5-Repita a secagem
+
+
+

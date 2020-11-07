@@ -1,0 +1,13 @@
+Engrenagem impressora (41 dentes) - filme a 120fps (x4)
+36:15
+38:00
+
+(1/4) * 1,375s/rev
+
+
+Engrenagem motor DC - filme a 960fps (x12)
+
+04:13
+05:15
+
+(1/12) * 1,083s/rev

@@ -1,0 +1,4 @@
+grande(impressora) 41 dentes
+pequena(fusor) 30 dentes
+
+ambas contagens checadas- ok

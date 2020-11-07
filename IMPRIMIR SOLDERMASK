@@ -1,0 +1,20 @@
+## NO KICAD
+1. Use a opção "Do not tent vias"
+
+## Com o filme fotossensível
+0.Determine qual lado do filme tem o plástico transparente:
+    -Corte um pedaço pequeno do filme
+    -Cole um pedaço de fita isolante em cada face e puxe
+    -Marque o lado que não é o filme transparente, é nele que devemos imprimir
+1.Corte um pedaço do filme do tamanho desejado
+2.Fixe o filme na chapa de alumínio da impressora com fita de empacotamento nas partes superior e inferior, como feito com a PCB
+3.Imprima 3 vezes a imagem para reforçar a cobertura
+
+4.Retire com cuidado o filme, pois a tinta não está fixada
+
+5.Retire o plástico transparente, alinhe e cole o filme na PCB
+6.Lamine 2 vezes a 110 graus. Laminei 3, mas o desenho pareceu estufar um pouco
+
+7.Reforce com uma caneta preta quaisquer falhas na cobertura.Testei com caneta para CD azul, funcionou, mas não ficou perfeito
+8.Exponha à luz UV, 3 sessões de 2min com câmara UV para cura de unhas, a base da câmara foi elevada 10cm do chão por um suporte de madeira, e a placa ficou no chão
+9.Revele com barrilha

@@ -1,0 +1,19 @@
+Required:
+Carrier guide: Aluminum Angle - 1"x1" - 10.5cm long
+Carrier - Aluminum Sheet 0.3mm depth, 17.5x29.5cm 
+	- 8mm drill
+Stainless steel axis 5mm diam 27cm long (at least)
+2x Rubber rollers 12mm outer diam, 5mm inner diam
+2x 8mm outer diam brass bearing
+Copper tape
+2.7K Resistor
+
+
+McMaster-Carr reference:
+6"x24"x.016 Aluminum Sheet 89015K115
+1/8"x3/4"x 12"' Aluminum Bar 89755K26
+Copper Tape with Conductive Adhesive .250" x 18' 76555A711
+Other Parts
+2.7K ohm resistor various sources
+2 #8 Ring Terminals or Spade Lugs (optional)
+MCU Board see text
